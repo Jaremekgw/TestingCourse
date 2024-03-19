@@ -1,15 +1,18 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    // original version "1.9.3.0"
+    id("de.mannodermaus.android-junit5") version "1.10.0.0"
 }
 
 android {
     namespace 'com.plcoding.testingcourse'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.plcoding.testingcourse"
-        minSdk 24
+        minSdk 33
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -64,7 +67,20 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
+    // testImplementation("org.junit.jupiter:junit-jupiter-jupiter-api:5.9.3")
+    // testImplementation("org.junit.jupiter:junit-jupiter-jupiter-params:5.9.3")
+    // testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.3")
+    // (Required) Writing and executing Unit Tests on the JUnit Platform
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+    // (Optional) If you need "Parameterized Tests"
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
+
     // Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Test - used for 'assertThat'
+    testImplementation("com.willowtreeapps.assertk:assertk:0.26.1")
+
 }
